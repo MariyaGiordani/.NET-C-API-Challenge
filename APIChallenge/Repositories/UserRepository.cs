@@ -51,6 +51,7 @@ namespace APIChallenge.Repositories
 
         public void Update(User user)
         {
+            user.Password = user.HashStringPassword(user.Password);
             _context.User.Update(user);
             _context.SaveChanges();
         }
